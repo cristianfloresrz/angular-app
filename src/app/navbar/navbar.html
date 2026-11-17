@@ -1,0 +1,19 @@
+<nav class="navbar">
+  <a class="brand" routerLink="/">Tienda Online</a>
+
+  <div class="links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Productos
+    </a>
+
+    @if (auth.isAuthenticated()) {
+      <a routerLink="/usuario" routerLinkActive="active">Mi vista</a>
+      @if (auth.isAdmin()) {
+        <a routerLink="/panel" routerLinkActive="active">Panel</a>
+      }
+      <button type="button" class="logout" (click)="logout()">Cerrar sesión</button>
+    } @else {
+      <a routerLink="/login" routerLinkActive="active">Iniciar sesión</a>
+    }
+  </div>
+</nav>

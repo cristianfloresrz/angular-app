@@ -1,0 +1,31 @@
+<div class="usuario-container">
+  <header class="usuario-header">
+    <div>
+      <h1>Vista de usuario</h1>
+      <p>
+        Hola, <strong>{{ auth.username() }}</strong>. Tienes acceso de solo lectura.
+        La administración de productos está reservada para el usuario <strong>johnd</strong>.
+      </p>
+    </div>
+    <span class="role">Rol: usuario</span>
+  </header>
+
+  @if (loading()) {
+    <p class="loading">Cargando productos...</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+  } @else {
+    <div class="products-grid">
+      @for (product of products(); track product.id) {
+        <article class="product-card">
+          <img [src]="product.image" [alt]="product.title" class="product-image" />
+          <div class="product-info">
+            <h3>{{ product.title }}</h3>
+            <p class="category">{{ product.category }}</p>
+            <p class="price">{{ product.price | currency: 'USD' }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</div>

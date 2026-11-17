@@ -1,0 +1,15 @@
+/* Solo los ajustes de la tabla; el resto es Bootstrap. */
+
+.admin-table {
+  min-width: 620px;
+}
+
+.admin-thumb {
+  width: 52px;
+  height: 52px;
+  padding: 4px;
+  object-fit: contain;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+}
