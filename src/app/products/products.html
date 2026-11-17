@@ -1,25 +1,25 @@
 <div class="container">
-
+  <H1>HOLA MUNDO</H1>
   @if (loading()) {
-    <div class="loading">Cargando productos...</div>
+  <div class="loading">Cargando productos...</div>
   } @else if (error()) {
-    <div class="error">{{ error() }}</div>
+  <div class="error">{{ error() }}</div>
   } @else {
-    <div class="products-grid">
-      @for (product of products(); track product.id) {
-        <article class="product-card">
-          <img [src]="product.image" [alt]="product.title" class="product-image">
-          <div class="product-info">
-            <h3 class="product-title">{{ product.title }}</h3>
-            <p class="product-category">{{ product.category }}</p>
-            <p class="product-price">${{ product.price }}</p>
-            <div class="product-actions">
-              <a [routerLink]="['/product', product.id]" class="btn btn-secondary">Ver</a>
-              <button (click)="addToCart(product)" class="btn btn-primary">Agregar</button>
-            </div>
-          </div>
-        </article>
-      }
-    </div>
+  <div class="products-grid">
+    @for (product of products(); track product.id) {
+    <article class="product-card">
+      <img [src]="product.image" [alt]="product.title" class="product-image">
+      <div class="product-info">
+        <h3 class="product-title">{{ product.title }}</h3>
+        <p class="product-category">{{ product.category }}</p>
+        <p class="product-price">${{ product.price }}</p>
+        <div class="product-actions">
+          <a [routerLink]="['/product', product.id]" class="btn btn-secondary">Ver</a>
+          <button (click)="addToCart(product)" class="btn btn-primary">Agregar</button>
+        </div>
+      </div>
+    </article>
+    }
+  </div>
   }
 </div>
